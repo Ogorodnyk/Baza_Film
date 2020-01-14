@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+{#    <p>Nazwa: {{ movie.title }}</p><br>#}
+{#<p>Gatunek {{ genre }}</p><br>#}
+{#<p>Year {{ movie.year }}</p><br>#}
+{#<p>Rezyser {{ movie.director }}</p><br>#}
+{#<p>Scenriusz {{ movie.screenplay }}</p><br>#}
+{#<p>Gwiazda {{ starring }}</p><br>#}
+{#<p>Ocena {{ movie.rating }}</p><br>#}
+
+    <meta charset="utf-8" />
+    <title>Edit Movie</title>
+</head>
+<body style="background-color:#ccccb3;">
+<body class="container">
+<form action="#" method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Input Title</label><br>
+            <input type="text" name="title" value="{{movie.title}}" />
+        </p>
+        <p>
+            <label>Input Year</label><br>
+            <input type="number" name="year" value="{{movie.year}}" />
+        </p>
+{#        <p>#}
+{#            <label>Input director Name</label><br>#}
+{#            <input type="text" name="director" value="{{movie.director.name}}" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Input director Last name</label><br>#}
+{#            <input type="text" name="director" value="{{ movie.director.last_name }}" />#}
+        </p>
+{#        <p>#}
+{#            <label>Input screenplay</label><br>#}
+{#            <input type="text" name="screenplay" value="{{movie.screenplay}}" />#}
+{#        </p>#}
+        <p>
+            <label>Input rating</label><br>
+            <input input type="number" step="0.1" name="rating" value="{{movie.rating}}" />
+        </p>
+        <input type="submit" value="Save" >
+    </form>
+</body>
+</html>

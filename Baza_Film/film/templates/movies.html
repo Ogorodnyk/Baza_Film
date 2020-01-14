@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body style="background-color:#ccccb3;">
+
+<form>
+   {% csrf_token %}
+Sort by rating:
+<button formmethod="POST" type="submit" name="sort" value="lowest">Od najniższej</button>
+<button formmethod="POST" type="submit" name="sort" value="highest">Od najwyższej</button>
+<button formmethod="POST" type="submit" name="sort" value="default">Domyślnie</button>
+    <input align="right" type="search" placeholder="Search" name="search"  >
+    <button type="submit" align="right">Szukaj w Bazie</button>
+</form><br>
+
+{% csrf_token %}
+{% for movie in movies %}
+    Film "{{ movie.title }}" z roku {{ movie.year }} wyreżyserował {{ movie.director.name }} {{ movie.director.last_name }} ma ocenę {{ movie.rating }} <a href="/edit_movie/{{movie.id}}">edit</a><br>
+</a> <br>
+{% endfor %}
+<hr>
+<a href="/add_movie"> Dodaj nowy film</a>
+<hr>
+<h4><a href="/persons/">Lista wszystkich osób</a></h4>
+</body>
+</html>

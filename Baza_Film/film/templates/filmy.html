@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baza Filmów</title>
+</head>
+<body style="background-color:#ccccb3;">
+<h2>Portal Filmowy</h2>
+<hr>
+<h3><font color="black">Lista Filmów</font></h3>
+{% for movie in movies %}
+    <p>
+
+       <a href="/movie_details/{{ movie.id }}">{{ movie.title }}</a> Rok: {{movie.year}}
+        Rezyser : {{ movie.director }}.  Ocena {{ movie.rating }} <a href="/edit_movie/{{movie.id}}">edit</a><br>
+    </p>
+{% endfor %}
+<hr>
+    <h4><a href="/persons/">Lista wszystkich osób</a></h4>
+<a href="/add_movie">Dodaj film</a><br>
+</body>
+</html>
